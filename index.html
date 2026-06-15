@@ -1,14 +1,152 @@
 <!DOCTYPE html>
 <html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>시작 페이지</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
-<div style="width: 1728px; height: 3396px; position: relative; background: black; overflow: hidden">
-  <div style="width: 535px; height: 120px; left: 598px; top: 944px; position: absolute; text-align: center; color: white; font-size: 27px; font-family: SM KGothic Std; font-weight: 500; line-height: 32.40px; word-wrap: break-word">우리는 잠이 오지 않을 때마다<br/>양을 세곤 합니다...</div>
-  <div style="width: 877px; height: 120px; left: 438px; top: 1545px; position: absolute; text-align: center; color: white; font-size: 40px; font-family: SM KGothic Std; font-weight: 500; line-height: 48px; word-wrap: break-word">하지만...<br/>과연 양들이 좋은 꿈만을 가져다줄까요?</div>
-  <div style="width: 709px; height: 120px; left: 509px; top: 2170px; position: absolute; text-align: center; color: #00FF11; font-size: 27px; font-family: SM KGothic Std; font-weight: 500; line-height: 32.40px; word-wrap: break-word">진실을 확인하고<br/>좋은 꿈을 꾸러 가기 vv</div>
-  <div style="width: 644px; height: 983px; left: 566px; top: 2241px; position: absolute">
-    <img style="width: 644px; height: 983px; left: 0px; top: 0px; position: absolute" src="https://placehold.co/644x983" />
+  <style>
+    {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 600;
+    }
+
+    body {
+      background: black;
+      min-height: 100vh;
+    }
+
+    .page-wrapper {
+      max-width: 1728px;
+      min-height: 3396px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section {
+      width: 100%;
+    }
+
+    .section-hero {
+      display: flex;
+      justify-content: center;
+      padding-top: 54px;
+    }
+
+    .section-hero .hero-image {
+      width: 1046.43px;
+      height: 815px;
+    }
+
+    .section-hero .hero-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .section-intro {
+      display: flex;
+      justify-content: center;
+      margin-top: 75px; 
+    }
+
+    .section-intro .intro-text {
+      width: 535px;
+      text-align: center;
+      color: white;
+      font-size: 27px;
+      line-height: 32.40px;
+    }
+
+    .section-question {
+      display: flex;
+      justify-content: center;
+      margin-top: 481px;
+    }
+
+    .section-question .question-text {
+      width: 877px;
+      text-align: center;
+      color: white;
+      font-size: 40px;
+      line-height: 48px;
+      word-wrap: break-word;
+    }
+
+    .section-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 505px;
+    }
+
+    .section-cta .cta-text {
+      width: 709px;
+      text-align: center;
+      color: #00FF11;
+      font-size: 27px;
+      line-height: 32.40px;
+      word-wrap: break-word;
+    }
+
+    .section-bottom-image {
+      display: flex;
+      justify-content: center;
+      margin-top: 39px
+    }
+
+    .section-bottom-image .bottom-image {
+      width: 644px;
+      height: 983px;
+    }
+
+    .section-bottom-image .bottom-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <section class="section-hero">
+      <div class="hero-image">
+        <img src="https://placehold.co/1047x815" alt="히어로 이미지" />
+      </div>
+    </section>
+
+    <section class="section-intro">
+      <div class="intro-text">
+        우리는 잠이 오지 않을 때마다<br/>양을 세곤 합니다...
+      </div>
+    </section>
+
+    <section class="section-question">
+      <div class="question-text">
+        하지만...<br/>과연 양들이 좋은 꿈만을 가져다줄까요?
+      </div>
+    </section>
+
+    <section class="section-cta">
+      <div class="cta-text">
+        진실을 확인하고<br/>좋은 꿈을 꾸러 가기 vv
+      </div>
+    </section>
+
+    <section class="section-bottom-image">
+      <div class="bottom-image">
+        <img src="https://placehold.co/644x983" alt="하단 이미지" />
+      </div>
+    </section>
+
   </div>
-  <div style="width: 1046.43px; height: 815px; left: 342px; top: 54px; position: absolute">
-    <img style="width: 1046.50px; height: 815px; left: -1px; top: 0px; position: absolute" src="https://placehold.co/1047x815" />
-  </div>
+</body>
+</html>
+
 </div>

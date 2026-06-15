@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>선택</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+
+        .revealed .top-text,
+    .revealed .question-text,
+    .revealed .btn-back,
+    .revealed .btn-yes {
+      display: none;
+    }
+    .fail-overlay,
+    .fail-title,
+    .fail-sub,
+    .btn-fail-back {
+      display: none;
+    }
+
+    .revealed .fail-overlay { display: block; }
+    .revealed .fail-title,
+    .revealed .fail-sub { display: block; }
+    .revealed .btn-fail-back { display: flex; }
+
+    .fail-overlay {
+      position: absolute;
+      top: -30px;
+      left: 0;
+      width: 100%;
+      height: calc(100% + 30px);
+      background: rgba(0, 0, 0, 0.70);
+    }
+
+    .fail-title {
+      position: absolute;
+      width: 929px;
+      top: 454px;
+      left: 399px;
+      text-align: center;
+      color: #00FF11;
+      font-size: 100px;
+      font-weight: 600;
+      line-height: 120px;
+    }
+
+    .fail-sub {
+      position: absolute;
+      width: 403px;
+      top: 585px;
+      left: 662px;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    .btn-fail-back {
+      position: absolute;
+      width: 304px;
+      height: 120px;
+      top: 623px;
+      left: 698px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #00FF11;
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 36px;
+      cursor: pointer;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 600;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: black;
+    }
+
+    .page-wrapper {
+      max-width: 1728px;
+      height: 100vh;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .section-bg {
+      width: 100%;
+      height: 100vh;
+      background-image: url(closetback.png);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bg-image {
+      width: 1074px;
+      height: 100%;
+      position: absolute;
+      left: 327px;
+      top: 0;
+    }
+
+    .overlay {
+      position: absolute;
+      top: -30px;
+      left: 0;
+      width: 100%;
+      height: calc(100% + 30px);
+      background: rgba(0, 0, 0, 0.20);
+    }
+
+    .top-text {
+      position: absolute;
+      width: 403px;
+      top: 79px;
+      left: 677px;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    .question-text {
+      position: absolute;
+      width: 1130px;
+      top: 476px;
+      left: 299px;
+      text-align: center;
+      color: #00FF11;
+      font-size: 75px;
+      font-weight: 700;
+      line-height: 90px;
+    }
+
+    .btn-back {
+      position: absolute;
+      width: 304px;
+      height: 120px;
+      top: 566px;
+      left: 617px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 48px;
+      cursor: pointer;
+    }
+
+    .btn-yes {
+      position: absolute;
+      width: 85px;
+      height: 120px;
+      top: 566px;
+      left: 941px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 48px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <section class="section-bg">
+
+      <img class="bg-image" src="open closet.png" />
+      <div class="overlay"></div>
+
+      <div class="top-text">이 집 안은 어딘가 이상한 것 같다...<br/>밖으로 나가보자</div>
+
+      <div class="question-text">정말 나가지 않으시겠습니까?</div>
+
+      <div class="btn-back" onclick="window.location.href='closet-choice.html'">뒤로 돌아가기</div>
+      <div class="btn-yes" onclick="document.querySelector('.section-bg').classList.add('revealed')">네</div>
+
+            <div class="fail-overlay"></div>
+      <div class="fail-title">you failed...</div>
+      <div class="fail-sub">용기를 내서 움직이지 않으면 아무것도 <br/>변하지 않습니다...</div>
+      <div class="btn-fail-back" onclick="window.location.href='closet-choice.html'">뒤로 돌아가기</div>
+
+    </section>
+  </div>
+</body>
+</html>

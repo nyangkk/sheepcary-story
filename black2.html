@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>black2</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 600;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: black;
+    }
+
+    .page-wrapper {
+      max-width: 1728px;
+      height: 100vh;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .section-bg {
+      width: 100%;
+      height: 100vh;
+      background-image: url(black1.png);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .overlay {
+      position: absolute;
+      top: -30px;
+      left: 0;
+      width: 100%;
+      height: calc(100% + 30px);
+      background: rgba(0, 0, 0, 0.70);
+    }
+
+    .baby1-img {
+      position: absolute;
+      width: 522px;
+      height: 506px;
+      left: 603px;
+      top: 278px;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .baby1-text {
+      position: absolute;
+      width: 403px;
+      top: 873px;
+      left: 662px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.8s ease 0.3s;
+    }
+
+    .baby2-img {
+      position: absolute;
+      width: 222px;
+      height: 215px;
+      left: 395px;
+      top: 679px;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .green-flash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #00FF11;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .green-flash.visible { opacity: 1; }
+  </style>
+  <script>
+    let state = 0;
+
+    function handleClick() {
+      if (state === 0) {
+        document.querySelector('.baby1-img').style.opacity = 1;
+        document.querySelector('.baby1-text').style.opacity = 1;
+        state = 1;
+      } else if (state === 1) {
+        document.querySelector('.baby1-img').style.opacity = 0;
+        document.querySelector('.baby1-text').style.opacity = 0;
+        document.querySelector('.overlay').style.transition = 'opacity 0.8s ease';
+        document.querySelector('.overlay').style.opacity = 0;
+        setTimeout(() => {
+          document.querySelector('.baby2-img').style.opacity = 1;
+        }, 400);
+        state = 2;
+      } else if (state === 2) {
+        document.querySelector('.green-flash').classList.add('visible');
+        setTimeout(() => { window.location.href = 'happy1.html'; }, 1200);
+        state = 3;
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="page-wrapper">
+    <section class="section-bg" onclick="handleClick()">
+
+      <div class="overlay"></div>
+
+      <img class="baby1-img" src="baby.png" />
+
+      <div class="baby1-text">
+        <span style="color:white; font-size:30px; line-height:36px;">당신은 </span><span style="color:#00FF11; font-size:30px; line-height:36px;">아기 양 인형</span><span style="color:white; font-size:30px; line-height:36px;">을 <br/>양들에게 건넸다...<br/></span>
+      </div>
+
+      <img class="baby2-img" src="baby2.png" />
+
+    </section>
+  </div>
+
+  <div class="green-flash"></div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>옷장</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 600;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: black;
+    }
+
+    .page-wrapper {
+      max-width: 1728px;
+      height: 100vh;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .section-bg {
+      width: 100%;
+      height: 100vh;
+      background-image: url(closetback.png);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .bg-image {
+      width: 1074px;
+      height: 100%;
+      position: absolute;
+      left: 327px;
+      top: 0;
+    }
+
+    .overlay {
+      position: absolute;
+      top: -30px;
+      left: 0;
+      width: 100%;
+      height: calc(100% + 30px);
+      background: rgba(0, 0, 0, 0.60);
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      pointer-events: none;
+    }
+
+    .item-image {
+      width: 893px;
+      height: 505.50px;
+      position: absolute;
+      left: 417px;
+      top: 272px;
+      opacity: 0;
+      transition: opacity 0.8s ease 0.3s;
+    }
+
+    .item-text {
+      position: absolute;
+      width: 403px;
+      top: 873px;
+      left: 662px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.8s ease 0.5s;
+    }
+
+    .section-bg.revealed .overlay,
+    .section-bg.revealed .item-image,
+    .section-bg.revealed .item-text {
+      opacity: 1;
+    }
+  </style>
+  <script>
+    function handleClick() {
+      const bg = document.querySelector('.section-bg');
+      if (!bg.classList.contains('revealed')) {
+        bg.classList.add('revealed');
+      } else {
+        window.location.href = 'closet-choice.html';
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="page-wrapper">
+    <section class="section-bg" onclick="handleClick()">
+
+      <img class="bg-image" src="open closet.png" />
+
+      <div class="overlay"></div>
+
+      <img class="item-image" src="sheep item.png" />
+
+      <div class="item-text">
+        <span style="color:#00FF11; font-size:30px; line-height:36px;">양 모양 쿠키</span><span style="color:white; font-size:30px; line-height:36px;">와 </span><span style="color:#00FF11; font-size:30px; line-height:36px;">아기 양 인형</span><span style="color:white; font-size:30px; line-height:36px;">을<br/>획득했다...<br/></span>
+      </div>
+
+    </section>
+  </div>
+</body>
+</html>

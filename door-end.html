@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>door end</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 600;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: black;
+    }
+
+    .overlay-title,
+    .overlay-sub,
+    .btn-back {
+      display: none;
+    }
+
+    .section-bg.revealed .overlay-title,
+    .section-bg.revealed .overlay-sub {
+      display: block;
+    }
+
+    .section-bg.revealed .btn-back {
+      display: flex;
+    }
+
+    .page-wrapper {
+      max-width: 1728px;
+      height: 100vh;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .section-bg {
+      width: 100%;
+      height: 100vh;
+      background-image: url(endback.png);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .image-area {
+      width: 1293px;
+      height: 1008px;
+      position: absolute;
+      left: 272px;
+      top: 126px;
+    }
+
+    .image-area img:first-child {
+      width: 635px;
+      height: 941px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .image-area img:last-child {
+      width: 782px;
+      height: 782px;
+      position: absolute;
+      left: 511px;
+      top: 226px;
+    }
+
+    .overlay {
+      display: none;
+      position: absolute;
+      top: -30px;
+      left: 0;
+      width: 100%;
+      height: calc(100% + 30px);
+      background: rgba(0, 0, 0, 0.50);
+    }
+
+    .overlay-title {
+      position: absolute;
+      width: 929px;
+      top: 423px;
+      left: 399px;
+      text-align: center;
+      color: #00FF11;
+      font-size: 100px;
+      font-weight: 600;
+      line-height: 120px;
+    }
+
+    .overlay-sub {
+      position: absolute;
+      width: 403px;
+      top: 554px;
+      left: 662px;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    .btn-back {
+      position: absolute;
+      width: 304px;
+      height: 120px;
+      top: 623px;
+      left: 698px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #00FF11;
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 36px;
+      cursor: pointer;
+    }
+    
+    .section-bg.revealed .overlay { display: block; }
+  </style>
+  <script>
+    function handleClick() {
+      const bg = document.querySelector('.section-bg');
+      if (!bg.classList.contains('revealed')) {
+        bg.classList.add('revealed');
+        bg.onclick = null;
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="page-wrapper">
+    <section class="section-bg" onclick="handleClick()">
+
+      <div class="image-area">
+        <img src="end1.png" />
+        <img src="end2.png" />
+      </div>
+
+      <div class="overlay"></div>
+
+      <div class="overlay-title">you failed...</div>
+
+      <div class="overlay-sub">아기 양 인형이 당신을 <br/>장난감으로 만드는 악몽을 꿨습니다...</div>
+
+      <div class="btn-back" onclick="event.stopPropagation(); window.location.href='index5.html?revealed=true'">뒤로 돌아가기</div>
+
+    </section>
+  </div>
+</body>
+</html>

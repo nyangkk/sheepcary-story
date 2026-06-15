@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>쿠키</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 600;
+    }
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: black;
+    }
+    .page-wrapper {
+      max-width: 1728px;
+      height: 100vh;
+      margin: 0 auto;
+      position: relative;
+    }
+    .section-bg {
+      width: 100%;
+      height: 100vh;
+      background-image: url(endback.png);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .scene-panel {
+      width: 1293px;
+      height: 1008px;
+      left: 272px;
+      top: 126px;
+      position: absolute;
+    }
+    .doll-img {
+      width: 635px;
+      height: 941px;
+      left: 68px;
+      top: 0px;
+      position: absolute;
+      transition: opacity 0.6s ease;
+    }
+    .subtitle {
+      width: 403px;
+      height: 120px;
+      left: 667px;
+      top: 50px;
+      position: absolute;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 24px;
+      word-wrap: break-word;
+    }
+    .cookie-img {
+      width: 418px;
+      height: 506px;
+      left: 800px;
+      top: 300px;
+      position: absolute;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      cursor: pointer;
+    }
+
+
+    .cookie-img.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .overlay {
+      width: 1742px;
+      height: 1147px;
+      left: 0px;
+      top: -30px;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.60);
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      pointer-events: none;
+    }
+    .result-text {
+      width: 403px;
+      height: 120px;
+      left: 662px;
+      top: 873px;
+      position: absolute;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.8s ease 0.3s;
+    }
+    .section-bg.revealed .overlay,
+    .section-bg.revealed .result-text {
+      opacity: 1;
+    }
+  </style>
+  <script>
+    const cookieImages = ['cookie1.png', 'cookie2.png', 'cookie3.png', 'cookie4.png'];
+    let cookieStep = 0;
+    let animating = false;
+    let done = false;
+    let revealReady = false;
+
+    const sound = new Audio('cookie_sound.mp3');
+
+    window.addEventListener('DOMContentLoaded', function () {
+      setTimeout(function () {
+        const img = document.querySelector('.cookie-img');
+        img.classList.add('visible');
+      }, 800);
+    });
+
+    function handleCookieClick() {
+      if (animating) return;
+      if (cookieStep === 0) {
+        sound.play();
+      }
+      animating = true;
+      cookieStep++;
+
+      const img = document.querySelector('.cookie-img');
+
+      if (cookieStep < cookieImages.length) {
+        setTimeout(function () {
+          img.src = cookieImages[cookieStep];
+          animating = false;
+        }, 500);
+      } else {
+        setTimeout(function () {
+          img.style.transition = 'opacity 0.5s ease';
+          img.style.opacity = '0';
+          setTimeout(function () {
+            img.style.display = 'none';
+            done = true;
+            revealReady = true;
+            document.querySelector('.section-bg').style.cursor = 'pointer';
+            animating = false;
+          }, 500);
+        }, 500);
+      }
+    }
+
+    function handleBgClick() {
+      if (!revealReady) return;
+      if (!document.querySelector('.section-bg').classList.contains('revealed')) {
+        document.querySelector('.doll-img').style.opacity = '0';
+        document.querySelector('.section-bg').classList.add('revealed');
+      } else {
+        window.location.href = 'cookie-2.html';
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="page-wrapper">
+    <section class="section-bg" onclick="handleBgClick()">
+      <div class="scene-panel">
+        <img class="doll-img" src="sheepdoll.png" />
+      </div>
+      <div class="subtitle">무서운 양 인형이 당신을 빤히 바라보고 있다...<br/>어떻게든 시선을 돌려야 할 것 같다</div>
+      <img class="cookie-img" src="cookie1.png" onclick="event.stopPropagation(); handleCookieClick()" />
+      <div class="overlay"></div>
+      <div class="result-text">
+        <span style="color:#00FF11; font-size:30px; line-height:36px;">무서운 양 인형</span><span style="color:white; font-size:30px; line-height:36px;">은</span><span style="color:#00FF11; font-size:30px; line-height:36px;"> 쿠키</span><span style="color:white; font-size:30px; line-height:36px;">를 먹고<br/>만족한 듯 자리를 떠났다...</span>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

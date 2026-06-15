@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>창문 2</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 600;
+    }
+    body {
+      background: black;
+      margin: 0;
+      overflow: hidden;
+    }
+    .page-wrapper {
+      max-width: 1728px;
+      height: 100vh;
+      margin: 0 auto;
+      position: relative;
+    }
+    .section-bg {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .img-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .phase-1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease;
+      pointer-events: none;
+    }
+    .phase-1.visible {
+      opacity: 1;
+    }
+    .overlay-1 {
+      width: 1742px;
+      height: 1147px;
+      position: absolute;
+      left: 0;
+      top: -30px;
+      background: rgba(0, 0, 0, 0.50);
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .overlay-1.visible {
+      opacity: 1;
+    }
+    .text-1 {
+      width: 929px;
+      height: 56px;
+      position: absolute;
+      left: 406px;
+      top: 76px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 36px;
+    }
+    .phase-2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease;
+      pointer-events: none;
+    }
+    .phase-2.visible {
+      opacity: 1;
+    }
+    .overlay-2 {
+      width: 1742px;
+      height: 1147px;
+      position: absolute;
+      left: 0;
+      top: -30px;
+      background: rgba(0, 0, 0, 0.80);
+    }
+    .img-black {
+      width: 1816px;
+      height: 1290px;
+      position: absolute;
+      left: -44px;
+      top: -87px;
+      opacity: 0.39;
+    }
+    .text-2 {
+      width: 929px;
+      height: 72px;
+      position: absolute;
+      left: 406px;
+      top: 76px;
+      display: block;
+      text-align: center;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 36px;
+    }
+    .green-flash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #00FF11;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+      pointer-events: none;
+      z-index: 999;
+    }
+    .green-flash.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <section class="section-bg" id="scene" onclick="handleClick()">
+      <img class="img-bg" src="window2.png" />
+
+      <div class="overlay-1" id="overlay1"></div>
+      <div class="phase-1" id="phase1">
+        <div class="text-1">당신은 창문 밖의 양에게<br/>습격받았다...</div>
+      </div>
+
+      <div class="phase-2" id="phase2">
+        <div class="overlay-2"></div>
+        <img class="img-black" src="black.png" />
+        <div class="text-2">
+          <span style="color:white;white-space:nowrap">점점 머리속이 </span><span style="color:#00FF11;white-space:nowrap">양</span><span style="color:white;white-space:nowrap">의 생각</span><span style="color:#00FF11;white-space:nowrap"> 양</span><span style="color:white;white-space:nowrap">으로<br/>가</span><span style="color:#00FF11;white-space:nowrap">양</span><span style="color:white;white-space:nowrap">득차게</span><span style="color:#00FF11;white-space:nowrap"> 양</span><span style="color:white;white-space:nowrap">된다</span><span style="color:#00FF11;white-space:nowrap">....</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="green-flash" id="greenFlash"></div>
+
+  <script>
+    var phase = 0;
+
+    setTimeout(function() {
+      document.getElementById('overlay1').classList.add('visible');
+      document.getElementById('phase1').classList.add('visible');
+      phase = 1;
+    }, 2000);
+
+    function handleClick() {
+      if (phase === 1) {
+        phase = 2;
+        document.getElementById('phase1').style.opacity = '0';
+        document.getElementById('phase2').classList.add('visible');
+        phase = 3;
+      } else if (phase === 3) {
+        phase = 4;
+        var flash = document.getElementById('greenFlash');
+        flash.classList.add('visible');
+        setTimeout(function() {
+          window.location.href = 'green1.html';
+        }, 1200);
+      }
+    }
+  </script>
+</body>
+</html>

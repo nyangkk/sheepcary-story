@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>집 풍경</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+     }
+     
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 600;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.6); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    html, body {
+      height: 100%;
+      background: black;
+    }
+
+    body {
+      animation: zoomIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+
+    .page-wrapper {
+      max-width: 1728px;
+      height: 100vh;
+      margin: 0 auto;
+    }
+
+    .section-bg {
+      width: 100%;
+      height: 100vh;
+      background-image: url(image4.png);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .click-area {
+      width: 404px;
+      height: 217px;
+      position: absolute;
+      top: 518px;
+      left: 639px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <section class="section-bg">
+      <div class="click-area" onclick="window.location.href='index5.html'"></div>
+    </section>
+  </div>
+</body>
+</html>
+

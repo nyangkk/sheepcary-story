@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>나가기</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 600;
+    }
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: black;
+    }
+    .page-wrapper {
+      max-width: 1728px;
+      height: 100vh;
+      margin: 0 auto;
+      position: relative;
+    }
+    .section-bg {
+      width: 100%;
+      height: 100vh;
+      background-image: url(endback.png);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .scene-panel {
+      width: 1293px;
+      height: 1008px;
+      left: 272px;
+      top: 126px;
+      position: absolute;
+    }
+    .scene-panel .img-back {
+      width: 782px;
+      height: 782px;
+      left: 511px;
+      top: 226px;
+      position: absolute;
+    }
+    .scene-panel .img-front {
+      width: 635px;
+      height: 941px;
+      left: 0px;
+      top: 0px;
+      position: absolute;
+    }
+    .subtitle {
+      width: 403px;
+      height: 120px;
+      left: 667px;
+      top: 50px;
+      position: absolute;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 24px;
+      word-wrap: break-word;
+    }
+    .overlay {
+      width: 1742px;
+      height: 1147px;
+      left: 0px;
+      top: -30px;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.60);
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      pointer-events: none;
+    }
+    .item-text {
+      width: 403px;
+      height: 120px;
+      left: 662px;
+      top: 537px;
+      position: absolute;
+      text-align: center;
+      justify-content: center;
+      display: block;
+      flex-direction: column;
+      opacity: 0;
+      transition: opacity 0.8s ease 0.3s;
+    }
+    .section-bg.revealed .overlay,
+    .section-bg.revealed .item-text {
+      opacity: 1;
+    }
+  </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      setTimeout(function () {
+        document.querySelector('.section-bg').classList.add('revealed');
+      }, 1500);
+    });
+
+    function handleClick() {
+      window.location.href = 'go-3.html';
+    }
+  </script>
+</head>
+<body>
+  <div class="page-wrapper">
+    <section class="section-bg" onclick="handleClick()">
+      <div class="scene-panel">
+        <img class="img-back" src="end2.png" />
+        <img class="img-front" src="end1.png" />
+      </div>
+      <div class="subtitle">무서운 양 인형이 당신을 빤히 바라보고 있다...<br/>어떻게든 시선을 돌려야 할 것 같다.</div>
+      <div class="overlay"></div>
+      <div class="item-text">
+        <span style="color:white; font-size:30px; line-height:36px;">옷장에서 찾은 </span><span style="color:#00FF11; font-size:30px; line-height:36px;">아이템</span><span style="color:white; font-size:30px; line-height:36px;">을 <br> 사용해보자...</span>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

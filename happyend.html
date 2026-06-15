@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>happyend</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Are+You+Serious&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 600;
+    }
+
+    html, body {
+      background: black;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .black-cover {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      opacity: 1;
+      transition: opacity 1.5s ease;
+      z-index: 999;
+      pointer-events: none;
+    }
+
+    .black-cover.hidden { opacity: 0; }
+
+    .page-wrapper {
+      max-width: 1728px;
+      margin: 0 auto;
+      position: relative;
+      background: black;
+    }
+
+    .section-main {
+      width: 100%;
+      position: relative;
+      height: 3178px;
+    }
+
+    .section-main img:first-child {
+      position: absolute;
+      width: 1530px;
+      height: 1964px;
+      left: 104px;
+      top: 93px;
+    }
+
+    .section-main img:last-child {
+      position: absolute;
+      width: 877px;
+      height: 516px;
+      left: 438px;
+      top: 2238px;
+    }
+
+    footer {
+      width: 100%;
+      padding: 60px 0;
+      text-align: center;
+      color: white;
+      font-size: 16px;
+      line-height: 28px;
+      background: black;
+    }
+
+    footer .title {
+      font-family: "Are You Serious", cursive;
+      font-weight: 400;
+      font-size: 0px;
+      margin-bottom: 8px;
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      setTimeout(() => {
+        document.querySelector('.black-cover').classList.add('hidden');
+      }, 100);
+    };
+  </script>
+</head>
+<body>
+  <div class="black-cover"></div>
+
+  <div class="page-wrapper">
+
+    <section class="section-main">
+      <img src="fin.png" />
+      <img src="fin1.png" />
+    </section>
+
+    <footer>
+      <div><span style="font-family:'Are You Serious', cursive; font-size: 20px">© 2026</span> <span style="font-family:'Pretendard';">김소이.</span> <span style="font-family:'Are You Serious', cursive; font-size: 20px;">All rights reserved.</span></div>
+    </footer>
+
+  </div>
+</body>
+</html>

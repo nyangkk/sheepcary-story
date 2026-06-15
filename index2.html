@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>페이지 2</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+     }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 800;
+    }
+
+    body {
+      background: black;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to   { opacity: 0; }
+    }
+
+    body.leaving {
+      animation: fadeOut 0.8s ease forwards;
+    }
+
+    .page-wrapper {
+      max-width: 1728px;
+      min-height: 1117px;
+      margin: 0 auto;
+    }
+
+    .section-image {
+      display: flex;
+      justify-content: center;
+      padding-top: 67px;
+      position: relative;
+    }
+
+    .image-stack {
+      width: 718px;
+      height: 983px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .image-stack img:first-child {
+      width: 718px;
+      height: 983px;
+      display: block;
+    }
+
+    .image-stack img:last-child {
+      width: 395px;
+      height: 846px;
+      position: absolute;
+      top: 57px;
+      left: 23px;
+    }
+
+    .reveal-text {
+      display: none;
+      position: absolute;
+      width: 709px;
+      top: 400px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #00FF11;
+      font-size: 40px;
+      font-weight: 430;
+      line-height: 48px;
+      pointer-events: none;
+    }
+
+    .reveal-text.visible {
+      display: block;
+      animation: fadeIn 0.6s ease forwards;
+    }
+  </style>
+  <script>
+        function handleClick() {
+      const text = document.getElementById('text');
+      if (!text.classList.contains('visible')) {
+        text.classList.add('visible');
+        setTimeout(() => {
+          document.body.classList.add('leaving');
+          setTimeout(() => { window.location.href = 'index3.html'; }, 800);
+        }, 2500);
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <section class="section-image">
+      <div class="image-stack" onclick="handleClick()">
+        <img src="image 2.png" />
+        <img src="image 2-1.png" />
+      </div>
+      <div id="text" class="reveal-text">
+        <img src="title.png" style="width:483px; height:126px; display:block; margin: 0 auto;" />
+        <div style="color:#00FF11; font-size:40px; font-weight:500; line-height:48px; margin-top:13px;">양서운 이야기...</div>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

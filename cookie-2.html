@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>어두운 복도</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    .section-bg {
+      animation: fadeIn 1.5s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 600;
+    }
+    body {
+      background: black;
+      margin: 0;
+      overflow: hidden;
+    }
+    .page-wrapper {
+      max-width: 1728px;
+      height: 100vh;
+      margin: 0 auto;
+      position: relative;
+    }
+    .section-bg {
+      width: 100%;
+      height: 100vh;
+      background-image: url(endback.png);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .top-text {
+      width: 403px;
+      position: absolute;
+      top: 50px;
+      left: 667px;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      line-height: 24px;
+    }
+    .light-area {
+      width: 304px;
+      height: 139px;
+      position: absolute;
+      left: 712px;
+      top: 489px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      color: #00FF11;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 48px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body style="opacity: 0; animation: fadeIn 1.5s ease forwards;">
+  <div class="page-wrapper">
+    <section class="section-bg">
+      <div class="top-text">
+        어두운 복도 끝에 초록색 빛이 보인다...
+      </div>
+      <div class="light-area" onclick="window.location.href='window-1.html';">
+        빛을 따라 가기
+      </div>
+    </section>
+  </div>
+</body>
+</html>

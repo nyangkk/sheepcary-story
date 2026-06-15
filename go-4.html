@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>실패</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 600;
+    }
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: black;
+    }
+    .page-wrapper {
+      max-width: 1728px;
+      height: 100vh;
+      margin: 0 auto;
+      position: relative;
+    }
+    .section-bg {
+      width: 100%;
+      height: 100vh;
+      background-image: url(endback.png);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .scene-panel {
+      width: 1293px;
+      height: 1008px;
+      left: 272px;
+      top: 126px;
+      position: absolute;
+    }
+    .scene-panel .img-back {
+      width: 782px;
+      height: 782px;
+      left: 511px;
+      top: 226px;
+      position: absolute;
+    }
+    .scene-panel .img-front {
+      width: 635px;
+      height: 941px;
+      left: 0px;
+      top: 0px;
+      position: absolute;
+    }
+    .overlay {
+      width: 1742px;
+      height: 1147px;
+      left: 0px;
+      top: -30px;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.50);
+    }
+    .fail-title {
+      width: 929px;
+      height: 108px;
+      left: 399px;
+      top: 423px;
+      position: absolute;
+      text-align: center;
+      color: #00FF11;
+      font-size: 100px;
+      font-weight: 600;
+      line-height: 120px;
+    }
+    .fail-desc {
+      width: 403px;
+      height: 120px;
+      left: 662px;
+      top: 554px;
+      position: absolute;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 24px;
+      word-wrap: break-word;
+    }
+    .btn-back {
+      width: 304px;
+      height: 120px;
+      left: 698px;
+      top: 697px;
+      position: absolute;
+      text-align: center;
+      display: block;
+      color: #00FF11;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 120px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <section class="section-bg">
+      <div class="scene-panel">
+        <img class="img-back" src="end2.png" />
+        <img class="img-front" src="end1.png" />
+      </div>
+      <div class="overlay"></div>
+      <div class="fail-title">you failed...</div>
+      <div class="fail-desc">무서운 아기 양 인형은 다른 인형이<br/>필요하지 않습니다... <br/><br/> 아기 양 인형이 당신을 <br/>장난감으로 만드는 악몽을 꿨습니다...</div>
+      <div class="btn-back" onclick="window.location.href='go-3.html'">뒤로 돌아가기</div>
+    </section>
+  </div>
+</body>
+</html>

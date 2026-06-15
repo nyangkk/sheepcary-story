@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>선택</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 600;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: black;
+    }
+
+    .page-wrapper {
+      max-width: 1728px;
+      height: 100vh;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .section-bg {
+      width: 100%;
+      height: 100vh;
+      background-image: url(closetback.png);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bg-image {
+      width: 1074px;
+      height: 100%;
+      position: absolute;
+      left: 327px;
+      top: 0;
+    }
+
+    .overlay {
+      position: absolute;
+      top: -30px;
+      left: 0;
+      width: 100%;
+      height: calc(100% + 30px);
+      background: rgba(0, 0, 0, 0.20);
+    }
+
+    .top-text {
+      position: absolute;
+      width: 403px;
+      top: 79px;
+      left: 677px;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 24px;
+    }
+
+    .btn-stay {
+      position: absolute;
+      width: 240px;
+      height: 120px;
+      top: 499px;
+      left: 629px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #00FF11;
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 48px;
+      cursor: pointer;
+    }
+
+    .btn-go {
+      position: absolute;
+      width: 304px;
+      height: 120px;
+      top: 499px;
+      left: 841px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #00FF11;
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 48px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <section class="section-bg">
+
+      <img class="bg-image" src="open closet.png" />
+      <div class="overlay"></div>
+
+      <div class="top-text">이 집 안은 어딘가 이상한 것 같다...<br/>밖으로 나가보자</div>
+
+      <div class="btn-stay" onclick="window.location.href='closet-really.html'">나가지 않기</div>
+      <div class="btn-go" onclick="window.location.href='go-1.html'">나가기</div>
+
+    </section>
+  </div>
+</body>
+</html>

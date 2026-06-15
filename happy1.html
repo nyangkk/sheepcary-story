@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>happy1</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 600;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: #00FF11;
+    }
+
+    .page-wrapper {
+      max-width: 1728px;
+      height: 100vh;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .section-bg {
+      width: 100%;
+      height: 100vh;
+      background-image: url(happy.png);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+    }
+
+    .intro-text {
+      position: absolute;
+      width: 800px;
+      top: 450px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 76.80px;
+      transition: opacity 0.8s ease;
+    }
+
+    .overlay2 {
+      position: absolute;
+      top: -30px;
+      left: 0;
+      width: 100%;
+      height: calc(100% + 30px);
+      background: rgba(0, 0, 0, 0.30);
+      opacity: 0;
+      transition: opacity 1.8s ease;
+    }
+
+    .outro-text {
+    position: absolute;
+    width: 929px;
+    top: 446px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 42px;
+    opacity: 0;
+    transition: opacity 1.8s ease 0.4s;
+  }
+
+    .black-out {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .black-out.visible { opacity: 1; }
+  </style>
+  <script>
+    let state = 0;
+
+    window.onload = function() {
+      setTimeout(() => {
+        document.querySelector('.section-bg').style.opacity = 1;
+      }, 100);
+    };
+
+    function handleClick() {
+      if (state === 0) {
+        document.querySelector('.intro-text').style.opacity = 0;
+        document.querySelector('.overlay2').style.opacity = 1;
+        document.querySelector('.outro-text').style.opacity = 1;
+        state = 1;
+      } else if (state === 1) {
+        setTimeout(() => {
+          document.querySelector('.black-out').classList.add('visible');
+          setTimeout(() => { window.location.href = 'happyend.html'; }, 1500);
+        }, 800);
+        state = 2;
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="page-wrapper">
+    <section class="section-bg" onclick="handleClick()">
+
+      <div class="intro-text">
+        <span style="color:white;">당신은 잃어버린 </span><span style="color:#00FF11;">양들의 친구</span><span style="color:white;">를<br/>찾아주었습니다!</span>
+      </div>
+
+      <div class="overlay2"></div>
+
+      <div class="outro-text">
+        <span style="color:white;">감사의 의미로 양들은<br/>당신에게 </span><span style="color:#00FF11;">행복한 꿈</span><span style="color:white;">을 가져다 줄 것입니다...</span>
+      </div>
+
+    </section>
+  </div>
+
+  <div class="black-out"></div>
+</body>
+</html>

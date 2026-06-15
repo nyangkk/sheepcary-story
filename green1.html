@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>green1</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 600;
+    }
+    body {
+      background: black;
+      margin: 0;
+      overflow: hidden;
+      cursor: none;
+    }
+    .page-wrapper {
+      max-width: 1728px;
+      height: 100vh;
+      margin: 0 auto;
+      position: relative;
+    }
+    .section-bg {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      cursor: none;
+    }
+    .img-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .green-cover {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #00FF11;
+      opacity: 1;
+      transition: opacity 1.5s ease;
+      z-index: 100;
+      pointer-events: none;
+    }
+    .green-cover.hidden {
+      opacity: 0;
+    }
+    .text-1 {
+      width: 929px;
+      position: absolute;
+      left: 399px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: block;
+      text-align: center;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 36px;
+      opacity: 0;
+      transition: opacity 1s ease;
+      pointer-events: none;
+    }
+    .text-1.visible {
+      opacity: 1;
+    }
+    .phase-2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease;
+      pointer-events: none;
+    }
+    .phase-2.visible {
+      opacity: 1;
+    }
+    .overlay-2 {
+      width: 1742px;
+      height: 1147px;
+      position: absolute;
+      left: 0;
+      top: -30px;
+      background: rgba(0, 0, 0, 0.55);
+    }
+    .text-2 {
+      width: 929px;
+      height: 243px;
+      position: absolute;
+      left: 399px;
+      top: 437px;
+      display: block;
+      text-align: center;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 36px;
+    }
+    .cursor-img {
+      width: 268px;
+      height: 183px;
+      position: fixed;
+      pointer-events: none;
+      z-index: 999;
+      display: none;
+      transform: translate(-50%, -50%);
+    }
+    .cursor-trail {
+      width: 268px;
+      height: 183px;
+      position: fixed;
+      pointer-events: none;
+      z-index: 998;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <section class="section-bg" id="scene" onclick="handleClick()">
+      <img class="img-bg" src="green1.png" />
+      <div class="text-1" id="text1">
+        <span style="color:white">당신은 마치 </span><span style="color:#00FF11">양</span><span style="color:white">주 오래 전부</span><span style="color:#00FF11">양</span><span style="color:white">터<br/>당신</span><span style="color:#00FF11">양</span><span style="color:white">이 </span><span style="color:#00FF11">양</span><span style="color:white">이었던 것 같</span><span style="color:#00FF11">양</span><span style="color:white"> 기분</span><span style="color:#00FF11">양</span><span style="color:white"> 느낀</span><span style="color:#00FF11">양</span><span style="color:white">다...</span>
+      </div>
+      <div class="phase-2" id="phase2">
+        <div class="overlay-2"></div>
+        <div class="text-2">
+          <span style="color:white">잠깐</span><span style="color:white">... <br/><br/>초원을 뛰놀던 당신의 주머니 속에서 <br/></span><span style="color:#00FF11">무언가</span><span style="color:white">가 느껴진다...</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="green-cover" id="greenCover"></div>
+  <img class="cursor-img" id="cursorMain" src="head.png" />
+
+  <script>
+    var phase = 0;
+    var cursorEnabled = false;
+    var trails = [];
+
+    setTimeout(function() {
+      document.getElementById('greenCover').classList.add('hidden');
+    }, 100);
+
+    setTimeout(function() {
+      cursorEnabled = true;
+      document.getElementById('cursorMain').style.display = 'block';
+      phase = 1;
+    }, 1700);
+
+    document.addEventListener('mousemove', function(e) {
+      var main = document.getElementById('cursorMain');
+      main.style.left = e.clientX + 'px';
+      main.style.top = e.clientY + 'px';
+
+      if (!cursorEnabled) return;
+
+      var t1 = document.createElement('img');
+      t1.src = 'head.png';
+      t1.className = 'cursor-trail';
+      t1.style.left = e.clientX + 'px';
+      t1.style.top = e.clientY + 'px';
+      t1.style.opacity = '0.5';
+      t1.style.transition = 'opacity 0.4s ease';
+      document.body.appendChild(t1);
+
+      var t2 = document.createElement('img');
+      t2.src = 'head.png';
+      t2.className = 'cursor-trail';
+      t2.style.left = e.clientX + 'px';
+      t2.style.top = e.clientY + 'px';
+      t2.style.opacity = '0.3';
+      t2.style.transition = 'opacity 0.6s ease';
+      document.body.appendChild(t2);
+
+      setTimeout(function() { t1.style.opacity = '0'; }, 50);
+      setTimeout(function() { t2.style.opacity = '0'; }, 100);
+      setTimeout(function() { t1.remove(); }, 500);
+      setTimeout(function() { t2.remove(); }, 700);
+    });
+
+    function handleClick() {
+      if (phase === 1) {
+        phase = 2;
+        document.getElementById('text1').classList.add('visible');
+      } else if (phase === 2) {
+        phase = 3;
+        cursorEnabled = false;
+        document.getElementById('cursorMain').style.display = 'none';
+        document.getElementById('text1').style.opacity = '0';
+        document.getElementById('phase2').classList.add('visible');
+      } else if (phase === 3) {
+        window.location.href = 'green2.html';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>나가기</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 600;
+    }
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: black;
+    }
+    .page-wrapper {
+      max-width: 1728px;
+      height: 100vh;
+      margin: 0 auto;
+      position: relative;
+    }
+    .section-bg {
+      width: 100%;
+      height: 100vh;
+      background-image: url(house.png);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .door-area {
+      width: 433px;
+      height: 907px;
+      left: 340px;
+      top: 92px;
+      position: absolute;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .door-label {
+      width: 403px;
+      height: 120px;
+      left: 12px;
+      top: 19px;
+      position: absolute;
+      text-align: center;
+      color: #00FF11;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 48px;
+      word-wrap: break-word;
+    }
+    .right-panel {
+      width: 645px;
+      height: 968px;
+      left: 871px;
+      top: 128px;
+      position: absolute;
+    }
+    .right-panel img {
+      width: 615px;
+      height: 923px;
+    }
+
+    .subtitle {
+      width: 403px;
+      height: 120px;
+      left: 667px;
+      top: 50px;
+      position: absolute;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 24px;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <section class="section-bg">
+      <div class="door-area" onclick="window.location.href='go-2.html'">
+        <div class="door-label">나가기</div>
+      </div>
+      <div class="right-panel">
+        <img src="closet.png" />
+      </div>
+      <div class="subtitle">문을 열고 밖으로 나가보자...</div>
+    </section>
+  </div>
+</body>
+</html>

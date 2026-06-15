@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>집 내부</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Pretendard', sans-serif;
+      font-weight: 600;
+    }
+
+    body {
+      background: black;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .page-wrapper {
+      max-width: 1728px;
+      height: 100vh;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .section-bg {
+      width: 100%;
+      height: 100vh;
+      background-image: url(house.png);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .top-text {
+      width: 403px;
+      position: absolute;
+      top: 50px;
+      left: 667px;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    .door-area {
+      width: 433px;
+      height: 907px;
+      position: absolute;
+      left: 370px;
+      top: 92px;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .door-label {
+      display: none;
+      position: absolute;
+      top: 19px;
+      left: 12px;
+      width: 403px;
+      text-align: center;
+      color: #00FF11;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 48px;
+    }
+
+    .closet-area {
+      width: 645px;
+      height: 968px;
+      position: absolute;
+      left: 871px;
+      top: 128px;
+      cursor: pointer;
+    }
+
+    .closet-area img {
+      width: 615px;
+      height: 923px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: none;
+    }
+
+    .closet-label {
+      display: none;
+      position: absolute;
+      top: -17px;
+      left: 116px;
+      width: 403px;
+      text-align: center;
+      color: #00FF11;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 48px;
+    }
+
+    .revealed .door-label,
+    .revealed .closet-label {
+      display: block;
+    }
+  </style>
+
+  <script>
+    function revealLabels() {
+      document.querySelector('.section-bg').classList.add('revealed');
+      document.querySelector('.section-bg').onclick = null;
+    }
+
+    if (new URLSearchParams(window.location.search).get('revealed')) {
+      window.onload = revealLabels;
+    }
+  </script>
+  
+</head>
+<body>
+  <div class="page-wrapper">
+    <section class="section-bg" onclick="revealLabels()">
+
+      <div class="top-text">
+        집에 들어오자 마자<br/>문과 기묘한 옷장이 보인다...
+      </div>
+
+      <div class="door-area" onclick="event.stopPropagation(); if(document.querySelector('.section-bg').classList.contains('revealed')) window.location.href='main-door.html';">
+        <div class="door-label">문을 믿기</div>
+      </div>
+
+      <div class="closet-area" onclick="event.stopPropagation(); if(document.querySelector('.section-bg').classList.contains('revealed')) window.location.href='main-closet.html';">
+        <img src="closet.png" />
+        <div class="closet-label">옷장을 믿기</div>
+      </div>
+
+    </section>
+  </div>
+</body>
+</html>
